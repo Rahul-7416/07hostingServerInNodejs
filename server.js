@@ -1,15 +1,11 @@
 const express = require('express');
 const app = express();
 const db = require('./db');
-const port = 3000;
-const MenuItems = require('./models/MenuItems.js')
+require('dotenv').config();
 
 const bodyParser = require('body-parser');
-
-// parse and extract the data from the http request's body
-// convert it from the json to object form 
-// store it in the req.body
 app.use(bodyParser.json()); 
+const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
     res.send('Welcome to our hotel... ')
@@ -22,6 +18,6 @@ app.use('/person', personRoutes);
 app.use('/menu', menuItemRoutes);
 
 
-app.listen(port, () => {
-    console.log(`Nodejs server is live on port: ${port}`)
+app.listen(PORT, () => {
+    console.log(`Nodejs server is live on port: ${PORT}`)
 })
