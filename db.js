@@ -12,10 +12,7 @@ const mongoURL = process.env.MONGODB_URL // this is the URL, our local URL, whic
 
 // Step3: Set up MongoDB connection
 // this step intializes the connection, but does'nt connect to the MongoDB Server at this point
-mongoose.connect(mongoURL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose.connect(mongoURL)
 
 // Step4: Get the default connection
 // Mongoose maintains a default connection object representing the MongoDB connection.
